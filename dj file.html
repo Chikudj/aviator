@@ -1,0 +1,39 @@
+<! DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"content="width=device-width,initial-scale=1.0">
+    <title>contact form to email using javaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel ="stylesheet" href="djcss.css">
+</head>
+<body>
+  <div class="container">
+  <form onsubmit="sendEmail(); reset(); return false;">
+            <h3>GET IN TOUCH DJ</h3>
+            <h2><marquee scroll direction = "left"> THIS IS CHIKU DJ movies . com</marquee></h2>
+            <input type="text"id="name"placeholder="enter  your name" required>
+            <input type="email"id="email"placeholder="enter email id"required>
+            <input type="text"id="phone"placeholder="enter phone number"required>
+            <textarea id="message" rows="4"placeholder="how can we help you?"></textarea>
+            <button class ="submit">send</button>
+        </form>
+      </div>
+      <script src="https://smtpjs.com/v3/smtp.js"></script>
+      <script>
+        function sendEmail(){
+            Email.send({
+            HOst:"smtp.gmail.com",
+            Username:"VENANCE",
+            Password:"Venance27@20233",
+            To: 'chikundemwenyewe@gmail.com',
+            From : document.getElementById("email").value,
+            Subject : "New contact Form Enquiry",
+            Body : "Name: " + document.getElementById("name").value
+            + "<br> Email: " + document.getElementById("email").value
+              + "<br> Phone no: " + document.getElementById("phone").value
+              + "<br> Message: " + document.getElementById("message").value
+            }).then(
+            message = > alert("message sent successfully")
+            );
+</body>
+  </html>
